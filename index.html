@@ -8,30 +8,21 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
   <script>
   $(document).ready(function(){
-    $("#sh_content").click(function () {
-	    if ($("#points").is(":hidden")) {
-	    	$("#points").show("normal");
-	    } else {
-	    	$("#points").hide("normal");
-		}
-      return false; // to stop the submit
-    });
-    $("#sh_content_2").click(function () {
-	    if ($("#points_2").is(":hidden")) {
-	    	$("#points_2").show("normal");
-	    } else {
-	    	$("#points_2").hide("normal");
-		}
-      return false; // to stop the submit
-    });
-    $("#sh_content_3").click(function () {
-	    if ($("#points_3").is(":hidden")) {
-	    	$("#points_3").show("normal");
-	    } else {
-	    	$("#points_3").hide("normal");
-		}
-      return false; // to stop the submit
-    });
+  	
+  	function display_list(points_id, show_hide_id) {
+	    $(show_hide_id).click(function () {
+		    if ($(points_id).is(":hidden")) {
+		    	$(points_id).show("normal");
+		    } else {
+		    	$(points_id).hide("normal");
+			}
+	      return false; // to stop the submit
+	    });
+	}
+	display_list("#points", "#sh_content");
+	display_list("#points_2", "#sh_content_2");
+	display_list("#points_3", "#sh_content_3");
+  
     function is_checked(points_id, show_hide_id) {
 	  	$(points_id).click(function() {
 	  		if ($(points_id+" input:checkbox").is(":checked")) {

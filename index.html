@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Dimentions and Metrics
+		<meta charset="utf8"/>
+	</title>
+	<script>
+	function generate_everyThing(type, elem, value, name, desc) {
+			var d = document.getElementById(elem);
+			d.innerHTML = "<input type="+type+" value="+value+" name="+name+"/>"+desc;
+		}
+	</script>
+	<style>
+		.container {
+			margin: 0 auto;
+			max-width: 700px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form action="%url%">
+			<p>Please select...</p>
+			Date from:
+			<input type="date" /><br><br>
+			Date to:
+			<input type="date"/>
+			<div id="place"></div>
+		</form>
+	</div>
+	<script>
+		window.onload = generate_everyThing("checkbox", "place", "1", "checkbox_1", "User Type")
+	</script>
+</body></html>

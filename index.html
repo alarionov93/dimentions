@@ -32,6 +32,18 @@
 		}
       return false; // to stop the submit
     });
+    function is_checked(points_id, show_hide_id) {
+	  	$(points_id).click(function() {
+	  		if ($(points_id+" input:checkbox").is(":checked")) {
+	  			$(show_hide_id).css("color", "red");
+	  		} else {
+	  			$(show_hide_id).css("color", "black");
+	  		}
+	  	});
+  	}
+  	is_checked("#points", "#sh_content");
+  	is_checked("#points_2", "#sh_content_2");
+  	is_checked("#points_3", "#sh_content_3");
   });
   </script>
 	<style>
@@ -141,11 +153,11 @@
 					<ul>
 						<div id="sh_content_2">List_two</div>
 						<div id="points_2">
-							<input type="checkbox" value="1" name="check_1"/>Metric_1<br>
-							<input type="checkbox" value="2" name="check_2"/>Metric_2<br>
-							<input type="checkbox" value="3" name="check_3"/>Metric_3<br>
-							<input type="checkbox" value="4" name="check_4"/>Metric_4<br>
-							<input type="checkbox" value="5" name="check_5"/>Metric_5
+							<input type="checkbox" value="6" name="check_6"/>Metric_6<br>
+							<input type="checkbox" value="7" name="check_7"/>Metric_7<br>
+							<input type="checkbox" value="8" name="check_8"/>Metric_8<br>
+							<input type="checkbox" value="9" name="check_9"/>Metric_9<br>
+							<input type="checkbox" value="10" name="check_10"/>Metric_10
 						</div>
 					</ul>
 					<ul></ul>
@@ -153,11 +165,11 @@
 				<div id="column_two">
 					<ul><div id="sh_content_3">List_Three</div>
 						<div id="points_3">
-							<input type="checkbox" value="1" name="check_1"/>Metric_1<br>
-							<input type="checkbox" value="2" name="check_2"/>Metric_2<br>
-							<input type="checkbox" value="3" name="check_3"/>Metric_3<br>
-							<input type="checkbox" value="4" name="check_4"/>Metric_4<br>
-							<input type="checkbox" value="5" name="check_5"/>Metric_5
+							<input type="checkbox" value="11" name="check_11"/>Metric_11<br>
+							<input type="checkbox" value="12" name="check_12"/>Metric_12<br>
+							<input type="checkbox" value="13" name="check_13"/>Metric_13<br>
+							<input type="checkbox" value="14" name="check_14"/>Metric_14<br>
+							<input type="checkbox" value="15" name="check_15"/>Metric_15
 						</div>
 					</ul>
 				</div>

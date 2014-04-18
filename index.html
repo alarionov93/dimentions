@@ -5,31 +5,164 @@
 		Dimentions and Metrics
 		<meta charset="utf8"/>
 	</title>
-	<script>
-	function generate_everyThing(type, elem, value, name, desc) {
-			var d = document.getElementById(elem);
-			d.innerHTML = "<input type="+type+" value="+value+" name="+name+"/>"+desc;
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("#sh_content").click(function () {
+	    if ($("#points").is(":hidden")) {
+	    	$("#points").show("normal");
+	    } else {
+	    	$("#points").hide("normal");
 		}
-	</script>
+      return false; // to stop the submit
+    });
+    $("#sh_content_2").click(function () {
+	    if ($("#points_2").is(":hidden")) {
+	    	$("#points_2").show("normal");
+	    } else {
+	    	$("#points_2").hide("normal");
+		}
+      return false; // to stop the submit
+    });
+    $("#sh_content_3").click(function () {
+	    if ($("#points_3").is(":hidden")) {
+	    	$("#points_3").show("normal");
+	    } else {
+	    	$("#points_3").hide("normal");
+		}
+      return false; // to stop the submit
+    });
+  });
+  </script>
 	<style>
+		.my_class_body {
+			font-family: "Verdana", Helvetica, Arial, sans-serif;
+			font-size: 16pt;
+		}
+		select {
+			font-size: 14pt;
+			border: 1px solid gainsboro;
+			border-radius: 5px;
+			min-width: 300px;
+			color: rgb(90, 90, 90);
+		}
+		option {
+			font-size: 14pt;
+			border: 1px solid gainsboro;
+			border-radius: 5px;
+			min-width: 300px;
+			color: rgb(90, 90, 90);
+		}
+		input[type="submit"],
+		input[type="button"],
+		input[type="reset"]{
+			background-color: #ededed;
+			line-height: 2;
+			font-family: "Verdana", Helvetica, Arial, sans-serif;
+			font-size: 16pt;
+			border: 1px solid #7c7c7c;
+			border-radius: 5px;
+			background: #ededed;
+		}
+		#submit_form {
+			margin-left: 43%;
+			margin-right: 43%;
+			display: inline-block;
+		}
 		.container {
 			margin: 0 auto;
-			max-width: 700px;
+			max-width: 900px;
+			height: 100%;
+		}
+		#head_of_form {
+			margin: 0 auto;
+			max-width: 500px;
+			padding-bottom: 100px;
+		}
+		#container_columns {
+			min-height: 400px;
+		}
+		#column_one {
+			float: left;
+			height: 200px;
+			min-width: 400px;
+			border-right: 1px solid #7c7c7c;
+			overflow-y: scroll;
+		}
+		#column_two {
+			float: right;
+			height: 200px;
+			min-width: 400px;
+			border-right: 1px solid #7c7c7c;
+			overflow-y: scroll;
+		}
+		#sh_content,
+		#sh_content_2,
+		#sh_content_3 {
+			cursor: pointer;
+		}
+		#points,
+		#points_2,
+		#points_3 {
+			display: none;
+			position: relative;
+			margin-left: 30px;
+			padding: 10px;
 		}
 	</style>
 </head>
-<body>
+<body class="my_class_body">
 	<div class="container">
 		<form action="%url%">
-			<p>Please select...</p>
-			Date from:
-			<input type="date" /><br><br>
-			Date to:
-			<input type="date"/>
-			<div id="place"></div>
+			<div id="head_of_form">
+				<p>Please select...</p>
+				Date range:
+				<select name="date_range">
+					<option value="1">Last 30 days</option>
+				</select>
+				<br><br>
+				Metrics group:
+				<select name="metrics_group">
+					<option value="1">Custom</option>
+					<option value="2">Main</option>
+				</select>
+			</div>
+			<div id="container_columns">
+				<div id="column_one">
+					<ul><div id="sh_content">List_One</div>
+						<div id="points">
+							<input type="checkbox" value="1" name="check_1"/>Metric_1<br>
+							<input type="checkbox" value="2" name="check_2"/>Metric_2<br>
+							<input type="checkbox" value="3" name="check_3"/>Metric_3<br>
+							<input type="checkbox" value="4" name="check_4"/>Metric_4<br>
+							<input type="checkbox" value="5" name="check_5"/>Metric_5
+						</div>
+					</ul>
+					<ul>
+						<div id="sh_content_2">List_two</div>
+						<div id="points_2">
+							<input type="checkbox" value="1" name="check_1"/>Metric_1<br>
+							<input type="checkbox" value="2" name="check_2"/>Metric_2<br>
+							<input type="checkbox" value="3" name="check_3"/>Metric_3<br>
+							<input type="checkbox" value="4" name="check_4"/>Metric_4<br>
+							<input type="checkbox" value="5" name="check_5"/>Metric_5
+						</div>
+					</ul>
+					<ul></ul>
+				</div>
+				<div id="column_two">
+					<ul><div id="sh_content_3">List_Three</div>
+						<div id="points_3">
+							<input type="checkbox" value="1" name="check_1"/>Metric_1<br>
+							<input type="checkbox" value="2" name="check_2"/>Metric_2<br>
+							<input type="checkbox" value="3" name="check_3"/>Metric_3<br>
+							<input type="checkbox" value="4" name="check_4"/>Metric_4<br>
+							<input type="checkbox" value="5" name="check_5"/>Metric_5
+						</div>
+					</ul>
+				</div>
+			</div>
+			<input id="submit_form" type="submit" name="send" value="Send Data"/>
 		</form>
 	</div>
-	<script>
-		window.onload = generate_everyThing("checkbox", "place", "1", "checkbox_1", "User Type")
-	</script>
 </body></html>

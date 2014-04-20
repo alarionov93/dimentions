@@ -9,17 +9,20 @@
   <script>
   $(document).ready(function(){
 
-  	function display_list(points_id, show_hide_id) {
+  	function display_list(points_id, points_id_to_show, show_hide_id) {
 	    $(show_hide_id).click(function () {
-		    if ($(points_id).is(":hidden")) {
-		    	$(points_id).show("normal");
+		    if ($(points_id_to_show).is(":hidden")) {
+		    	$(points_id_to_show).show("normal");
+		    	while (i<4) {
+					$(points_id+"_"+i).hide("normal");
+		    	}
 		    } else {
-		    	$(points_id).hide("normal");
+		    	$(points_id_to_show).hide("normal");
 			}
 	      return false; // to stop the submit
 	    });
 	}
-	display_list("#points", "#sh_content");
+	display_list("#points_1", "#sh_content");
 	display_list("#points_2", "#sh_content_2");
 	display_list("#points_3", "#sh_content_3");
   
@@ -32,7 +35,7 @@
 	  		}
 	  	});
   	}
-  	is_checked("#points", "#sh_content");
+  	is_checked("#points_1", "#sh_content");
   	is_checked("#points_2", "#sh_content_2");
   	is_checked("#points_3", "#sh_content_3");
   });
@@ -108,7 +111,7 @@
 		#sh_content_3 {
 			cursor: pointer;
 		}
-		#points,
+		#points_1,
 		#points_2,
 		#points_3 {
 			display: none;
@@ -141,8 +144,8 @@
 				</div>
 				<div id="column_one">
 					<ul><div id="sh_content">User</div>
-						<div id="points">
-							<input type="checkbox" value="1" name="check_1" title="Counts the total number of sessions." />ga:userType<br>
+						<div id="points_1">
+							<input type="checkbox" value="1" name="check_1"/>ga:userType<br>
 							<input type="checkbox" value="2" name="check_2"/>ga:sessionCount<br>
 							<input type="checkbox" value="3" name="check_3"/>ga:daysSinceLastSession<br>
 							<input type="checkbox" value="4" name="check_4"/>ga:userDefinedValue

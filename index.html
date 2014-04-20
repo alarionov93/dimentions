@@ -8,7 +8,7 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
   <script>
   $(document).ready(function(){
-  	
+
   	function display_list(points_id, show_hide_id) {
 	    $(show_hide_id).click(function () {
 		    if ($(points_id).is(":hidden")) {
@@ -26,9 +26,9 @@
     function is_checked(points_id, show_hide_id) {
 	  	$(points_id).click(function() {
 	  		if ($(points_id+" input:checkbox").is(":checked")) {
-	  			$(show_hide_id).css("color", "red");
+	  			$(show_hide_id).css("text-decoration", "underline");
 	  		} else {
-	  			$(show_hide_id).css("color", "black");
+	  			$(show_hide_id).css("text-decoration", "none");
 	  		}
 	  	});
   	}
@@ -85,6 +85,10 @@
 		#container_columns {
 			min-height: 400px;
 		}
+		.header {
+			width: 100%;
+			height: 30px;
+		}
 		#column_one {
 			float: left;
 			height: 200px;
@@ -131,36 +135,33 @@
 				</select>
 			</div>
 			<div id="container_columns">
+				<div class="header">
+					<div class="dimentions" style="float: left; display: inline-block; margin-right: 350px;">Dimentions</div>
+					<div class="dimentions" style="float: left; display: inline-block;">Metrics</div>
+				</div>
 				<div id="column_one">
-					<ul><div id="sh_content">List_One</div>
+					<ul><div id="sh_content">User</div>
 						<div id="points">
-							<input type="checkbox" value="1" name="check_1"/>Metric_1<br>
-							<input type="checkbox" value="2" name="check_2"/>Metric_2<br>
-							<input type="checkbox" value="3" name="check_3"/>Metric_3<br>
-							<input type="checkbox" value="4" name="check_4"/>Metric_4<br>
-							<input type="checkbox" value="5" name="check_5"/>Metric_5
+							<input type="checkbox" value="1" name="check_1" title="Counts the total number of sessions." />ga:userType<br>
+							<input type="checkbox" value="2" name="check_2"/>ga:sessionCount<br>
+							<input type="checkbox" value="3" name="check_3"/>ga:daysSinceLastSession<br>
+							<input type="checkbox" value="4" name="check_4"/>ga:userDefinedValue
 						</div>
 					</ul>
 					<ul>
-						<div id="sh_content_2">List_two</div>
+						<div id="sh_content_2">Session</div>
 						<div id="points_2">
-							<input type="checkbox" value="6" name="check_6"/>Metric_6<br>
-							<input type="checkbox" value="7" name="check_7"/>Metric_7<br>
-							<input type="checkbox" value="8" name="check_8"/>Metric_8<br>
-							<input type="checkbox" value="9" name="check_9"/>Metric_9<br>
-							<input type="checkbox" value="10" name="check_10"/>Metric_10
+							<input type="checkbox" value="6" name="check_5"/>ga:sessionDurationBucket
 						</div>
 					</ul>
 					<ul></ul>
 				</div>
 				<div id="column_two">
-					<ul><div id="sh_content_3">List_Three</div>
+					<ul><div id="sh_content_3">User</div>
 						<div id="points_3">
-							<input type="checkbox" value="11" name="check_11"/>Metric_11<br>
-							<input type="checkbox" value="12" name="check_12"/>Metric_12<br>
-							<input type="checkbox" value="13" name="check_13"/>Metric_13<br>
-							<input type="checkbox" value="14" name="check_14"/>Metric_14<br>
-							<input type="checkbox" value="15" name="check_15"/>Metric_15
+							<input type="checkbox" value="11" name="check_6"/>ga:users<br>
+							<input type="checkbox" value="12" name="check_7"/>ga:newUsers<br>
+							<input type="checkbox" value="13" name="check_8"/>ga:percentNewSessions
 						</div>
 					</ul>
 				</div>
